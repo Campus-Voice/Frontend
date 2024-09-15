@@ -3,6 +3,7 @@ import { Formik, Form } from "formik";
 import InputField from "./InputField";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
+import { FaEye } from "react-icons/fa";
 import "./placeholder-not-shown.css";
 
 export default function LoginForm() {
@@ -64,6 +65,7 @@ export default function LoginForm() {
                                     className="eye hover:bg-orange-50 cursor-pointer rounded-full p-2 text-sm text-gray-500 aspect-square "
                                     onClick={toggleVisibility}
                                 >
+                                    <FaEye />
                                 </p>
                             </div>
                             <button
