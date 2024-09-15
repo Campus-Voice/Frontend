@@ -4,6 +4,7 @@ import InputField from "./InputField";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import "./placeholder-not-shown.css";
+import { FaEye } from "react-icons/fa";
 
 export default function SignupForm() {
     const initialValues= {
@@ -97,6 +98,7 @@ export default function SignupForm() {
                                     className="eye hover:bg-orange-50 cursor-pointer rounded-full p-2 text-sm text-gray-500 aspect-square"
                                     onClick={toggleVisibility}
                                 >
+                                    <FaEye />
                                 </p>
                             </article>
                             <article
