@@ -44,9 +44,39 @@ function Recommendations() {
 
     return (
         <aside className='bg-black sticky px-5 top-16 z-50 text-white divide-gray-400 divide-opacity-80 divide-y-2 font-Roboto overflow-y-auto' style={{ height: "calc(100vh - 64px)" }}>
-            <article className='my-communities flex flex-col py-4'>
+            <article className='communities flex flex-col py-4'>
                 <h2 className='font-Oswald text-xl text-themeTwo mb-4'>
-                    Explore them
+                    Explore Communities
+                </h2>
+                {followings.map((following, index) => (
+                    <NavLink
+                        key={index}
+                        to={following.link}
+                        className={({ isActive }) =>
+                            `${isActive ? "bg-opacity-30 hover:bg-opacity-30" : "bg-opacity-0 hover:bg-opacity-10"} 
+              flex items-center justify-between px-4 py-2 bg-white rounded-full transition-all duration-200`
+                        }
+                    >
+                        <div className="party flex space-x-2">
+                            <div className="logo w-12 h-12 rounded-full bg-cover bg-center" style={{ backgroundImage: `url(${following.logo})` }}></div>
+                            <div className="text">
+                                <div className="name font-Oswald">
+                                    {following.name}
+                                </div>
+                                <div className="members font-extralight">
+                                    {following.members} members
+                                </div>
+                            </div>
+                        </div>
+                        <div className="join font-bold text-xl bg-white bg-opacity-0 hover:bg-opacity-30 transition-all duration-200 p-1 rounded-full">
+                            <IoIosAddCircleOutline />
+                        </div>
+                    </NavLink>
+                ))}
+            </article>
+            <article className='personalities flex flex-col py-4'>
+                <h2 className='font-Oswald text-xl text-themeTwo mb-4'>
+                    People you may know
                 </h2>
                 {followings.map((following, index) => (
                     <NavLink

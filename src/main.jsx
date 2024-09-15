@@ -7,12 +7,14 @@ import App from './App.jsx'
 import './index.css'
 import SignupForm from './Components/SignUp-LogIn/signup.jsx';
 import LoginForm from './Components/SignUp-LogIn/login.jsx';
+import { CommunityProfile } from './Components/profile/communityProfile.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route path='' element={<App />} >
         <Route path='' element={<Home />} />
+        <Route path='profile/community/' element={<CommunityProfile/>} />
       </Route>
       <Route path='/signup' element={<SignupForm />} />
       <Route path='/login' element={<LoginForm/>} />
