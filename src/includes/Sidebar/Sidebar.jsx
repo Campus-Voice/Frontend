@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { IoMdHome } from "react-icons/io";
 import { IoPeopleSharp } from "react-icons/io5";
@@ -9,6 +9,7 @@ import nsui from "/Assets/Images/NSUI.jpg";
 import cyss from "/Assets/Images/CYSS.jpg";
 import soi from "/Assets/Images/SOI.png";
 import sopu from "/Assets/Images/SOPU.jpg";
+import "./scrollbar.css"
 
 function MenuElement({ text, link, component }) {
   return (
@@ -62,7 +63,7 @@ function Sidebar() {
     }];
 
   return (
-    <aside className='bg-black sticky px-5 top-16 z-50 text-white divide-gray-400 divide-opacity-80 divide-y-2 font-Roboto' style={{ height: "calc(100vh - 64px)" }}>
+    <aside className='bg-black sticky px-5 top-16 z-50 text-white divide-gray-400 divide-opacity-80 divide-y-2 font-Roboto overflow-y-auto' style={{ height: "calc(100vh - 64px)" }}>
       <article className='menu flex flex-col py-4'>
         <MenuElement link="" text="Home" component={<IoMdHome />} />
         <MenuElement link="communities" text="Communities" component={<IoPeopleSharp />} />
