@@ -22,7 +22,7 @@ export default function LoginForm() {
         alert(JSON.stringify(values));
     }
 
-    const [visibility, setVisibility] = useState<"password" | "text">("password");
+    const [visibility, setVisibility] = useState("password");
 
     function toggleVisibility() {
         visibility == "text" ? setVisibility("password") : setVisibility("text")
