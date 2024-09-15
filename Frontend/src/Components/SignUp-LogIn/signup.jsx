@@ -5,51 +5,14 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import "./placeholder-not-shown.css";
 import { FaEye } from "react-icons/fa";
-import axios from "axios"
 
 export default function SignupForm() {
     const initialValues = {
-        username: "",
+        firstName: "",
+        lastName: "",
         email: "",
         password: "",
     };
-    const handleRegister = async (values) => {
-        try {
-            const response = await axios.post(
-                "http://localhost:5000/api/auth/verify-otp",
-                {
-                    email: values.email,
-                    otp: values.otp,
-                }
-            );
-            if (response.status === 200) {
-                navigate("/login");
-            }
-        } catch (error) {
-            console.error("OTP verification error:", error);
-            alert(error);
-        }
-    };
-
-    const handleGetOtp = async (values) => {
-        try {
-            const response = await axios.post(
-                "http://localhost:5000/api/auth/signup",
-                {
-                    firstName: values.firstName,
-                    lastName: values.lastName,
-                    email: values.email,
-                    password: values.password,
-                    confirmPassword: values.confirmPassword,
-                }
-            );
-            alert("OTP sent to email");
-            setOtpInputDisabled(false);
-        } catch (error) {
-            console.error("Signup error:", error);
-        }
-    };
-
 
     const validationSchema = Yup.object({
         firstName: Yup.string()
@@ -107,7 +70,7 @@ export default function SignupForm() {
                                 Label="First Name*"
                             />
                             <InputField
-                                Name="last Name"
+                                Name="lastName"
                                 Type="text"
                                 Label="Last Name*"
                             />
@@ -188,14 +151,9 @@ export default function SignupForm() {
                                     </li>
                                 </ul>
                             </article>
-                            <InputField
-                                Name="confirmPassword"
-                                Type="text"
-                                Label="Confirm Password*"
-                            />
-                            <button
+                            {/* <button
                                 className="border-2 border-solid border-white text-white p-2 rounded-lg my-2 bg-[#1db8cd]"
-                                disabled={isValid}
+                                disabled={!isValid}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     handleGetOtp(values);
@@ -207,7 +165,7 @@ export default function SignupForm() {
                                 Name="otp"
                                 Type="number"
                                 Label="OTP*"
-                            />
+                            /> */}
                             <button
                                 type="submit"
                                 className={`mt-2 w-full rounded-lg text-white px-4 py-2 hover:bg-themeTwo transition-all duration-300 ease-linear ${isValid ? "bg-themeOne" : "bg-red-600"
@@ -227,6 +185,6 @@ export default function SignupForm() {
                 </p>
                 <div className="g-signin2" data-onsuccess="onSignIn"></div>
             </section>
-        </main>
+        </main >
     );
 }

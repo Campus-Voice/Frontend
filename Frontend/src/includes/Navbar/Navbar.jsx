@@ -22,9 +22,9 @@ function Navbar() {
   }
   return (
     <nav className='bg-themeFive text-themeTwo flex justify-between px-10 py-3 items-center border-b border-gray-400 text-xl sticky top-0 z-50 h-16'>
-      <div className="logo">
+      <NavLink to="/" className="logo">
         Logo
-      </div>
+      </NavLink>
       <div className="searchbar space-x-4 bg-white bg-opacity-30 rounded-full px-4 w-[clamp(50px,30vw,100rem)] flex items-center justify-start text-white hover:bg-opacity-40 transition-opacity focus-within:bg-opacity-10">
         <label htmlFor="search"><IoIosSearch /></label>
         <input type="search" name="search" id="search" placeholder='Search' value={inputValue} className='bg-transparent outline-none flex-1 py-2 text-base' onChange={handleSearchChange} autoComplete='off' />

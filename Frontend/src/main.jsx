@@ -9,19 +9,21 @@ import SignupForm from './Components/SignUp-LogIn/signup.jsx';
 import LoginForm from './Components/SignUp-LogIn/login.jsx';
 import { CommunityProfile } from './Components/profile/communityProfile.jsx';
 import { CollegeProfile } from './Components/profile/collegeProfile.jsx';
+import Post from './Components/Post/Post.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route path='' element={<App />} >
         <Route path='' element={<Home />} />
-        <Route path='profile/community/' element={<CommunityProfile/>} />
-        <Route path='colleges/' element={<CollegeProfile/>} />
+        <Route path='/popular' element={<Home />} />
+        <Route path='/post/:community/:postID' element={<Post />} />
+        <Route path='community/:college/:community' element={<CommunityProfile />} />
+        <Route path='colleges/' element={<CollegeProfile />} />
       </Route>
       <Route path='/signup' element={<SignupForm />} />
-      <Route path='/login' element={<LoginForm/>} />
+      <Route path='/login' element={<LoginForm />} />
     </Route>
-
   )
 );
 

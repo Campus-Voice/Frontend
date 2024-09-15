@@ -4,7 +4,7 @@ import { BiDownvote } from "react-icons/bi";
 import { FaRegCommentAlt } from "react-icons/fa";
 import CYSS from "/Assets/Images/CYSS.jpg"
 import Event from "/Assets/Images/Event.jpeg"
-import { Link } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 
 function Home() {
     return (
@@ -30,10 +30,10 @@ function Home() {
                             <BiDownvote />
                         </span>
                     </div>
-                    <div className="comments bg-white bg-opacity-25 hover:bg-opacity-30 py-2 px-4  rounded-3xl flex items-center gap-2">
+                    <Link to="post/cyss/lorem" className="comments bg-white bg-opacity-25 hover:bg-opacity-30 py-2 px-4  rounded-3xl flex items-center gap-2">
                         <FaRegCommentAlt />
-                        40
-                    </div>
+                        2
+                    </Link>
                 </div>
             </div>
         </section>

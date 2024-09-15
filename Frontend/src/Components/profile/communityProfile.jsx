@@ -3,10 +3,11 @@ import {
     CardHeader,
     CardBody,
     CardFooter,
-    Typography,
     Button,
 } from "@material-tailwind/react";
-import CYSS from "../../../public/Assets/Images/CYSS.jpg"
+import CYSS from "/Assets/Images/CYSS.jpg"
+import Event from "/Assets/Images/Event.jpeg"
+import {Link} from "react-router-dom"
 export function CommunityProfile() {
     return (
         <section className="col-span-3 bg-black">
@@ -22,8 +23,8 @@ export function CommunityProfile() {
                                     <h1 class="text-xl font-bold">CYSS</h1>
                                     <p class="text-gray-700">890 Members</p>
                                     <div class="mt-6 flex flex-wrap gap-4 justify-center">
-                                        <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Follow</a>
-                                        <a href="#" class="bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded">Remove</a>
+                                        {/* <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Follow</a> */}
+                                        <a href="#" class="bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded">Unfollow</a>
                                     </div>
                                 </div>
                             </div>
@@ -32,64 +33,18 @@ export function CommunityProfile() {
                             <Card className="mt-6 w-96">
                                 <CardHeader color="blue-gray" className="relative h-56">
                                     <img
-                                        src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+                                        src={Event}
                                         alt="card-image"
+                                        className="w-full h-full bg-cover bg-center"
                                     />
                                 </CardHeader>
                                 <CardBody>
-                                    <Typography variant="h5" color="blue-gray" className="mb-2">
-                                        UI/UX Review Check
-                                    </Typography>
-                                    <Typography>
-                                        The place is close to Barceloneta Beach and bus stop just 2 min by
-                                        walk and near to &quot;Naviglio&quot; where you can enjoy the main
-                                        night life in Barcelona.
-                                    </Typography>
+                                    <p className="line-clamp-4">
+                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi architecto et autem unde, necessitatibus id magnam enim neque aut a error facere ad accusantium ea? Possimus quos dicta minima, alias eligendi ipsum nisi architecto non necessitatibus, enim repellendus distinctio. Officiis id ea nesciunt consequuntur magnam ratione harum nostrum aspernatur numquam eum, tempora natus maiores, atque, repellendus accusantium? Dolores, corrupti! Nesciunt quam recusandae distinctio sequi. Dignissimos quis illum debitis fugit deserunt, odit aut deleniti blanditiis quasi neque. Maiores molestias atque quibusdam animi facere nemo et omnis asperiores illo quos quod modi quasi ab voluptas quidem, culpa magni illum pariatur. Molestias, facere.
+                                    </p>
                                 </CardBody>
                                 <CardFooter className="pt-0">
-                                    <Button>Read More</Button>
-                                </CardFooter>
-                            </Card>
-                            <Card className="mt-6 w-96">
-                                <CardHeader color="blue-gray" className="relative h-56">
-                                    <img
-                                        src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-                                        alt="card-image"
-                                    />
-                                </CardHeader>
-                                <CardBody>
-                                    <Typography variant="h5" color="blue-gray" className="mb-2">
-                                        UI/UX Review Check
-                                    </Typography>
-                                    <Typography>
-                                        The place is close to Barceloneta Beach and bus stop just 2 min by
-                                        walk and near to &quot;Naviglio&quot; where you can enjoy the main
-                                        night life in Barcelona.
-                                    </Typography>
-                                </CardBody>
-                                <CardFooter className="pt-0">
-                                    <Button>Read More</Button>
-                                </CardFooter>
-                            </Card>
-                            <Card className="mt-6 w-96">
-                                <CardHeader color="blue-gray" className="relative h-56">
-                                    <img
-                                        src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-                                        alt="card-image"
-                                    />
-                                </CardHeader>
-                                <CardBody>
-                                    <Typography variant="h5" color="blue-gray" className="mb-2">
-                                        UI/UX Review Check
-                                    </Typography>
-                                    <Typography>
-                                        The place is close to Barceloneta Beach and bus stop just 2 min by
-                                        walk and near to &quot;Naviglio&quot; where you can enjoy the main
-                                        night life in Barcelona.
-                                    </Typography>
-                                </CardBody>
-                                <CardFooter className="pt-0">
-                                    <Button>Read More</Button>
+                                    <Link to="/post/cyss/lorem"><Button>Read More</Button></Link>
                                 </CardFooter>
                             </Card>
                         </div>

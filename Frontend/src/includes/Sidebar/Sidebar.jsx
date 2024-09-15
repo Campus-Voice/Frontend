@@ -8,9 +8,8 @@ import nsui from "/Assets/Images/NSUI.jpg";
 import cyss from "/Assets/Images/CYSS.jpg";
 import soi from "/Assets/Images/SOI.png";
 import sopu from "/Assets/Images/SOPU.jpg";
-// import DT from "/Assets/Images/DevyanshThakur.jpg";
-// import JS from "/Assets/Images/Jatinder-Singh.avif";
-// import PC from "/Assets/Images/PrinceChaudhary.jpg";
+import DT from "/Assets/Images/DevyanshThakur.jpeg";
+import JS from "/Assets/Images/Jatinder-Singh.avif";
 import "./scrollbar.css"
 function MenuElement({ text, link, component }) {
   return (
@@ -29,46 +28,27 @@ function MenuElement({ text, link, component }) {
   );
 }
 function Sidebar() {
-
-  // Array of followings
-  const followings = [{
-    logo: abvp,
-    name: "ABVP",
-    members: 890,
-    link: "community/pu/abvp"
-  },
-  {
-    logo: nsui,
-    name: "NSUI",
-    members: 1270,
-    link: "community/pu/nsui"
-  },
-  {
-    logo: cyss,
-    name: "CYSS",
-    members: 1330,
-    link: "community/pu/cyss"
-  },
-  {
-    logo: soi,
-    name: "SOI",
-    members: 790,
-    link: "community/pu/soi"
-  },
-  {
-    logo: sopu,
-    name: "SOPU",
-    members: 660,
-    link: "community/pu/sopu"
-  }];
-
-  const personalities = [
-    {
-      logo: "",
-      name: "Divyansh Thakur",
-      followers: 435,
+  class NavElements {
+    constructor(image, name, followers, link) {
+      this.image = image;
+      this.name = name;
+      this.followers = followers;
+      this.link = link;
     }
-  ]
+  }
+  // Array of followings
+  const followings = [
+    new NavElements(abvp, 'ABVP', 890, 'community/pu/abvp'),
+    new NavElements(nsui, 'NSUI', 1270, 'community/pu/nsui'),
+    new NavElements(cyss, 'CYSS', 1330, 'community/pu/cyss'),
+    new NavElements(soi, 'SOI', 790, 'community/pu/soi'),
+    new NavElements(sopu, 'SOPU', 660, 'community/pu/sopu')
+  ];
+  // Array of personalities
+  const personalities = [
+    new NavElements(DT, 'Divyansh Thakur', 435, 'community/pu/DivyanshThakur'),
+    new NavElements(JS,"Jatinder Singh" ,632,"community/pu/JS"),
+  ];
   return (
     <aside className='bg-black sticky px-5 top-16 z-50 text-white divide-gray-400 divide-opacity-80 divide-y-2 font-Roboto overflow-y-auto' style={{ height: "calc(100vh - 64px)" }}>
       <article className='menu flex flex-col py-4'>
@@ -92,26 +72,26 @@ function Sidebar() {
               flex space-x-2 items-center px-4 py-3 bg-white rounded-full transition-all duration-200`
             }
           >
-            <div className="logo w-12 h-12 rounded-full bg-cover bg-center" style={{ backgroundImage: `url(${following.logo})` }}></div>
+            <div className="logo w-12 h-12 rounded-full bg-cover bg-center" style={{ backgroundImage: `url(${following.image})` }}></div>
             <div className="text">
               <div className="name font-Oswald">
                 {following.name}
               </div>
               <div className="members font-extralight">
-                {following.members} members
+                {following.followers} members
               </div>
             </div>
           </NavLink>
         ))}
       </article>
-      <article className='my-communities flex flex-col py-4'>
+      <article className='my-individuals flex flex-col py-4'>
         <h2 className='flex justify-between items-center font-Oswald text-xl text-themeTwo mb-4'>
-          Famous People
+          Followings
           <span className='bg-themeTwo rounded-full px-5 py-1 text-center text-base text-white'>
-            {followings.length}
+            {personalities.length}
           </span>
         </h2>
-        {followings.map((following, index) => (
+        {personalities.map((following, index) => (
           <NavLink
             key={index}
             to={following.link}
@@ -120,13 +100,13 @@ function Sidebar() {
               flex space-x-2 items-center px-4 py-3 bg-white rounded-full transition-all duration-200`
             }
           >
-            <div className="logo w-12 h-12 rounded-full bg-cover bg-center" style={{ backgroundImage: `url(${following.logo})` }}></div>
+            <div className="logo w-12 h-12 rounded-full bg-cover bg-center" style={{ backgroundImage: `url(${following.image})` }}></div>
             <div className="text">
               <div className="name font-Oswald">
                 {following.name}
               </div>
               <div className="members font-extralight">
-                {following.members} members
+                {following.followers} members
               </div>
             </div>
           </NavLink>
