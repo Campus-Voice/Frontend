@@ -18,22 +18,28 @@ function Recommendations() {
         link: "community/pu/inso"
     },
     {
-        logo: inso,
-        name: "INSO",
-        members: 680,
-        link: "community/pu/inso"
+        logo: AISA,
+        name: "AISA",
+        members: 380,
+        link: "community/pu/aisa"
     },
     {
-        logo: inso,
-        name: "INSO",
-        members: 680,
-        link: "community/pu/inso"
+        logo: GGSU,
+        name: "GGSU",
+        members: 580,
+        link: "community/pu/ggsu"
     },
     {
-        logo: inso,
-        name: "INSO",
-        members: 680,
-        link: "community/pu/inso"
+        logo: images,
+        name: "HPSU",
+        members: 840,
+        link: "community/pu/hpsu"
+    },
+    {
+        logo: PUSU,
+        name: "PUSU",
+        members: 580,
+        link: "community/pu/pusu"
     },];
 
     return (
