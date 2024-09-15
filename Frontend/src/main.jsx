@@ -8,6 +8,7 @@ import './index.css'
 import SignupForm from './Components/SignUp-LogIn/signup.jsx';
 import LoginForm from './Components/SignUp-LogIn/login.jsx';
 import { CommunityProfile } from './Components/profile/communityProfile.jsx';
+import { CollegeProfile } from './Components/profile/collegeProfile.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
       <Route path='' element={<App />} >
         <Route path='' element={<Home />} />
         <Route path='profile/community/' element={<CommunityProfile/>} />
+        <Route path='colleges/' element={<CollegeProfile/>} />
       </Route>
       <Route path='/signup' element={<SignupForm />} />
       <Route path='/login' element={<LoginForm/>} />

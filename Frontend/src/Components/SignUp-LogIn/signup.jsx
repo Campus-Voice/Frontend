@@ -5,16 +5,57 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import "./placeholder-not-shown.css";
 import { FaEye } from "react-icons/fa";
+import axios from "axios"
 
 export default function SignupForm() {
-    const initialValues= {
+    const initialValues = {
         username: "",
         email: "",
         password: "",
     };
+    const handleRegister = async (values) => {
+        try {
+            const response = await axios.post(
+                "http://localhost:5000/api/auth/verify-otp",
+                {
+                    email: values.email,
+                    otp: values.otp,
+                }
+            );
+            if (response.status === 200) {
+                navigate("/login");
+            }
+        } catch (error) {
+            console.error("OTP verification error:", error);
+            alert(error);
+        }
+    };
+
+    const handleGetOtp = async (values) => {
+        try {
+            const response = await axios.post(
+                "http://localhost:5000/api/auth/signup",
+                {
+                    firstName: values.firstName,
+                    lastName: values.lastName,
+                    email: values.email,
+                    password: values.password,
+                    confirmPassword: values.confirmPassword,
+                }
+            );
+            alert("OTP sent to email");
+            setOtpInputDisabled(false);
+        } catch (error) {
+            console.error("Signup error:", error);
+        }
+    };
+
 
     const validationSchema = Yup.object({
-        username: Yup.string()
+        firstName: Yup.string()
+            .max(10, "Must be 10 characters or less")
+            .required("Required Field"),
+        lastName: Yup.string()
             .max(10, "Must be 10 characters or less")
             .required("Required Field"),
         email: Yup.string()
@@ -29,7 +70,7 @@ export default function SignupForm() {
     });
 
     function handleSubmit(values) {
-        alert(JSON.stringify(values));
+        handleRegister(values);
     }
 
     const [visibility, setVisibility] = useState("password");
@@ -40,7 +81,7 @@ export default function SignupForm() {
     }
 
     return (
-        <main className="min-h-screen flex justify-center items-center bg-gradient-to-tl via-themeThree from-themeTwo  to-themeTwo">
+        <main className="min-h-screen flex justify-center items-center bg-gradient-to-tl via-themeThree from-themeTwo  to-themeTwo py-10">
             <section className="flex-col gap-10 bg-themeFour px-20 pb-16 rounded-2xl shadow-form">
                 <img
                     src="/Assets/Images/Logo.png"
@@ -61,9 +102,14 @@ export default function SignupForm() {
                     {({ setFieldValue, isValid }) => (
                         <Form className="flex flex-col gap-3 h-auto font-Poppins">
                             <InputField
-                                Name="username"
+                                Name="firstName"
                                 Type="text"
-                                Label="Username*"
+                                Label="First Name*"
+                            />
+                            <InputField
+                                Name="last Name"
+                                Type="text"
+                                Label="Last Name*"
                             />
                             <InputField
                                 Name="email"
@@ -142,6 +188,26 @@ export default function SignupForm() {
                                     </li>
                                 </ul>
                             </article>
+                            <InputField
+                                Name="confirmPassword"
+                                Type="text"
+                                Label="Confirm Password*"
+                            />
+                            <button
+                                className="border-2 border-solid border-white text-white p-2 rounded-lg my-2 bg-[#1db8cd]"
+                                disabled={isValid}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    handleGetOtp(values);
+                                }}
+                            >
+                                Get OTP
+                            </button>
+                            <InputField
+                                Name="otp"
+                                Type="number"
+                                Label="OTP*"
+                            />
                             <button
                                 type="submit"
                                 className={`mt-2 w-full rounded-lg text-white px-4 py-2 hover:bg-themeTwo transition-all duration-300 ease-linear ${isValid ? "bg-themeOne" : "bg-red-600"
