@@ -40,10 +40,10 @@ export default function SignupForm() {
     }
 
     return (
-        <main className="min-h-screen flex justify-center items-center bg-gradient-to-tl to-themeTwo via-themeThree  from-themeTwo">
+        <main className="min-h-screen flex justify-center items-center bg-gradient-to-tl via-themeThree from-themeTwo  to-themeTwo">
             <section className="flex-col gap-10 bg-themeFour px-20 pb-16 rounded-2xl shadow-form">
                 <img
-                    src="/Images/Togetherly.png"
+                    src="/Assets/Images/Logo.png"
                     alt="Logo"
                     className="size-28 mx-auto my-5"
                 />
@@ -156,7 +156,7 @@ export default function SignupForm() {
                 <p>
                     Already have an account?
                     <span className="text-themeOne hover:text-themeTwo transition-all ml-2">
-                        <Link to="/user/login">Log in</Link>
+                        <Link to="/login">Log in</Link>
                     </span>
                 </p>
                 <div className="g-signin2" data-onsuccess="onSignIn"></div>

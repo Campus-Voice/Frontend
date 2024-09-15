@@ -1,7 +1,9 @@
 // Import colors synchronously
 const colors = require("tailwindcss/colors");
+const withMT = require("@material-tailwind/react/utils/withMT");
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+module.exports = withMT({
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -16,11 +18,11 @@ module.exports = {
         themeFive: "black"
       },
       fontFamily: {
-        Bebas: ["Bebas Neue","sans-sarif"],
-        Roboto: ["Roboto","sans-sarif"],
-        Oswald: ["Oswald","sans-sarif"]
+        Bebas: ["Bebas Neue", "sans-serif"],
+        Roboto: ["Roboto", "sans-serif"],
+        Oswald: ["Oswald", "sans-serif"]
       }
     },
   },
   plugins: [],
-};
+});
